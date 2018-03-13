@@ -18,6 +18,7 @@ class Form extends Component {
         let title = this.refs.title.value;
         if(title) {
             this.props.onAdd(title);
+            this.refs.title.value = '';
         }
     }
 
