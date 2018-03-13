@@ -25,15 +25,3 @@ Todo.propTypes = {
 };
 
 export default Todo;
-
-import React from 'react';
-
-const Todoss = () => {
-    return (
-        <div>
-            <Button />
-        </div>
-    );
-};
-
-export default Todoss;
