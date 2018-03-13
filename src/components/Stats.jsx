@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 const Stats = props => {
     let total = props.todos.length;
@@ -25,10 +24,6 @@ const Stats = props => {
             </tbody>
         </table>
     );
-};
-
-Stats.propTypes = {
-    todos : PropTypes.array.isRequired,
 };
 
 export default Stats;
