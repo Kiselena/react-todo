@@ -17,6 +17,7 @@ class App extends Component {
         this.handleStatusChange = this.handleStatusChange.bind(this);
         this.handleAdd = this.handleAdd.bind(this);
         this.handleDelete = this.handleDelete.bind(this);
+        this.handleEdit = this.handleEdit.bind(this);
         
     }
 
@@ -55,6 +56,16 @@ class App extends Component {
         return this.setState({todos});
     }
 
+    handleEdit(id, title) {
+        let todos = this.state.todos.map(todo => {
+            if(todo.id ===id){
+                todo.title = title;
+            }
+            return todo;
+        });
+    this.setState ({ todos });
+}
+
 
     render() {
         return (
@@ -69,7 +80,8 @@ class App extends Component {
                         title = {todo.title}
                         completed = {todo.completed}
                         onStatusChange={this.handleStatusChange}
-                        onDelete={this.handleDelete}  />
+                        onDelete={this.handleDelete} 
+                        onEdit={this.handleEdit} />
                 )}
             </section>
             <Form onAdd={this.handleAdd} />
@@ -83,7 +95,8 @@ App.propTypes = {
     title : PropTypes.string,
     initialData : PropTypes.array.isRequired,
     id : PropTypes.any,
-};
+}
+
 
 App.defaultProps = {
     title : 'React Todo'
