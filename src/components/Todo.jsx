@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import Checkbox from './Checkbox';
 import Button from "./Button";
 
 
-class Todo extends React.Component {
+class Todo extends Component {
     constructor(props) {
         super(props);
 
@@ -14,6 +14,12 @@ class Todo extends React.Component {
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    componentDidUpdate (prevProps, prevState) {
+        if(this.state.editing) {
+            this.refs.title.select();
+        }
     }
 
     handleSubmit (event) {
